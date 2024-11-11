@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- <script src="j.js"></script> -->
+	<h2>Digital clock</h2>
+  <div class="clock">    
+	<div>
+	<span id="hours">00</span>
+	<span class="text">hours</span>
+</div>
+<div>
+	<span id="minutes">00</span>
+	<span class="text">minutes</span>
+</div>
+
+<div>
+	<span id="seconds">00</span>
+	<span class="text">seconds</span>
+
+</div>
+
+<div>
+	<span id="ampm">AM</span>
+</div>
+</div>
+
+<script type="text/javascript">
+	
+var hours=document.getElementById("hours");
+const minutes=document.getElementById("minutes");
+const seconds=document.getElementById("seconds");
+const ampm=document.getElementById("ampm");
+function clock()
+ {
+	let h=new Date().getHours();
+	let m=new Date().getMinutes();
+	let s=new Date().getSeconds();
+	console.log("h");
+	let a="PM";
+	if(h>12)
+	{
+		h=h-12;
+		a="AM";
+	}
+	h=h<10 ? "0"+h:h;
+	m=m<10 ? "0"+m:m;
+	s=s<10 ? "0"+s:s;
+	hours.innerHTML=h;
+	minutes.innerText=m;
+	seconds.innerText=s;
+	ampm.innerHTML=a;
+	setTimeout(()=>{
+		clock()
+	},1000)
+
+}
+clock();
+
+
+
+
+</script>
+</body>
+</html>
